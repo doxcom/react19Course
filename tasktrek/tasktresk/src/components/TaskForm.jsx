@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import "./TaskForm.css";
 import Tag from './Tag';
 
-     const TaskForm = () => {
+     const TaskForm = ({setTasks}) => {
       
       const [taskData,setTaskData] = useState({
         task: "",
@@ -14,7 +14,7 @@ import Tag from './Tag';
       const checkTag = (tag) => {
         return taskData.tags.some(item => item === tag)
       }
-      
+
       const selectTag = (tag) => {
            if(taskData.tags.some(item => item === tag)){
           const filterTags =  taskData.tags.filter(item => item !== tag)
@@ -39,6 +39,9 @@ import Tag from './Tag';
 
 const handleSubmit = (e) =>{
       e.preventDefault();
+      setTasks(prev =>{
+        return [...prev, taskData]
+      })
 }      
 
   return (
