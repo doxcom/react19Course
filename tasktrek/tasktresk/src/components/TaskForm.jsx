@@ -41,6 +41,11 @@ const handleSubmit = (e) =>{
       e.preventDefault();
       setTasks(prev =>{
         return [...prev, taskData]
+      });
+      setTaskData({
+        task: "",
+        status: "todo",
+        tags: [],
       })
 }      
 
@@ -50,6 +55,7 @@ const handleSubmit = (e) =>{
         <input 
         type="text" 
         name="task"
+        value={taskData.task}
         className="task_input"
         placeholder='Enter your task'
         onChange={handleChange}
@@ -66,6 +72,7 @@ const handleSubmit = (e) =>{
           <div>
             <select 
               name="status"
+              value={taskData.status}
               className='task_status' 
               onChange={handleChange}>
               <option value="todo"> To do</option>
