@@ -1,14 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import "./TaskForm.css";
 import Tag from './Tag';
 
 const TaskForm = () => {
+      const [taskDate, setTaskData] = useState({
+        task: "",
+        status: "todo"
+      })
+
+      const handleChange = () =>{
+
+      }
+
+  //const [task, setTask] = useState("");
+  //const [status, setStatus] = useState("todo");
+
+  //const handleTaskChange = (e) =>{
+  //  setTask(e.target.value);
+ // };
+  
+   //const handleStatusChange = (e) =>{
+   // setStatus(e.target.value);
+  //};
+
   return (
     <header className='app_header'>
       <form>
-        <input type="text" className="task_input"
-        placeholder='Enter your task' />
+        <input 
+        type="text" 
+        className="task_input"
+        placeholder='Enter your task'
+        onChange={handleChange}
+        />
 
         <div  className='task_form_bottom_line'>
           <div>
@@ -19,7 +43,8 @@ const TaskForm = () => {
           </div>
 
           <div>
-            <select className='task_status'>
+            <select className='task_status' 
+              onChange={handleChange}>
               <option value="todo"> To do</option>
               <option value="doing"> Doing</option>
               <option value="done"> Done</option>
